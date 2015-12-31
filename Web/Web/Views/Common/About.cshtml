@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "关于我们";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h1>关于我们</h1>
+    </div>
+    <div class="panel-body">
+        <h3>收藏、分享您喜欢的网址：</h3>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="@Url.Action("Index", "Home")">我的云导航</a>是一款轻便灵活的云端书签收藏夹，最安全，永久免费， 您可以在任意浏览器、平板电脑、iPhone、安卓等上网终端上免费使用它，您的收藏数据永不丢失，随时随地访问您喜爱的网站。
+        <a href="@Url.Action("Index", "Home")">我的云导航</a>设计简约，轻便、实用，深得许多用户的喜爱。毫无任何广告信息，我们始终以用户体验、实用为主，做互联网上最好用的网络收藏夹！
+        如果您认可我们，请大力支持我们吧！
+
+      <h3>为什么要使用我们：</h3>
+        简单的操作，收藏自己喜欢的网址，汇聚于一页<br />
+        任意浏览器、平板电脑、iPhone、安卓上都能使用，走到哪用到哪<br />
+        不必担心重装系统而丢失<br />
+        支持导入浏览器收藏夹与导出收藏夹<br />
+
+
+        <h3>我们的愿景：</h3>
+        <strong>努力成为广大互联网最喜欢的网络收藏夹</strong>
+
+        <h3>联系方式：</h3>
+        <strong>@(Web.Common.CommonHelper.WebInfo.AdminEmail)</strong>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>我们的网址：</h3>
+                @{
+                    foreach (var m in Web.Common.CommonHelper.WebInfo.WebURL)
+                    {
+                    <a href="@m" target="_blank"><strong>@m</strong></a><br />
+                    }
+                }
+            </div>
+            <div class="col-md-6">
+                <img src="@Url.Content("~/Resources/Images/webUrl.jpg")" alt="@Web.Common.CommonHelper.WebInfo.Title" />
+            </div>
+        </div>
+
+
+    </div>
+</div>

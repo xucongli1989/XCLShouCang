@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "用户登录";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <center>
+            <h2>立即登录，尽情享受我们的云服务吧</h2>
+        </center>
+    </div>
+    <div class="panel-body">
+        <form id="form1" name="form1" class="form-horizontal" role="form" method="post" action="@Url.Action("LogOnSubmit", "Login")">
+            <p></p>
+            <div class="form-group">
+                <label for="txtUserName" class="col-md-4 control-label">*用户名：</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtUserName" name="txtUserName" placeholder="请输入用户名" valid="required" errmsg="必填！" />
+                </div>
+                <div class="col-md-4">
+                    <span id="errMsg_txtUserName"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtPwd" class="col-md-4 control-label">*密码：</label>
+                <div class="col-md-4">
+                    <input type="password" class="form-control" id="txtPwd" name="txtPwd" placeholder="请输入密码" valid="required" errmsg="必填！" />
+                </div>
+                <div class="col-md-4">
+                    <span id="errMsg_txtPwd"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4"></div>
+                <div class="col-md-8">
+                    <button type="button" class="btn btn-info" id="btnLogOn" onclick="XCLShouCang.Login.LogOn.Submit(this);return false;">立即登录</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4"></div>
+                <div class="col-md-8">
+                    <a href="@Url.Action("Register", "Login")">还没账号？免费注册吧！</a>
+                    <a href="javascript:void(0);" id="qqLoginBtn">
+                        <img src="@(Web.Common.CommonHelper.RootURL)Resources/Images/qqlogin.png" />
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        XCLShouCang.Login.LogOn.Init();
+    });
+</script>

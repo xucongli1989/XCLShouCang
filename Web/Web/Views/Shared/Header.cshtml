@@ -1,0 +1,57 @@
+﻿<title>@(string.IsNullOrEmpty(ViewBag.Title)?Web.Common.CommonHelper.WebInfo.Title:string.Format("{0}——{1}",ViewBag.Title, Web.Common.CommonHelper.WebInfo.Title))</title>
+<meta name="keywords" content="@Web.Common.CommonHelper.WebInfo.KeyWords" />
+<meta name="description" content="@Web.Common.CommonHelper.WebInfo.Description" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="@(Web.Common.CommonHelper.RootURL)Resources/Images/logo/favicon.ico" /> 
+
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("css", "bootstrap.css"))
+<!--[if lt IE 9]>
+    @Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "html5shiv.min.js"))
+    @Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "respond.min.js"))
+<![endif]-->
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("css", "base.css"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "jqurey"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "bootstrap.js"))
+
+@*@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("css", "bootstrap-switch.css"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "bootstrap-switch.js"))*@
+
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("css", "iCheck.css"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "iCheck.js"))
+
+
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("css", "artDialog.css"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "artDialog.js"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "artDialog.iframeTools.js"))
+
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "stickUp.js"))
+
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("css", "FormValid.css"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "table.js"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "XCLShouCang.js"))
+
+@if(null==ViewBag.IsLogOn || !ViewBag.IsLogOn){
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="@XCLNetTools.XML.ConfigClass.GetConfigString("QQAppID")" data-redirecturi="@XCLNetTools.XML.ConfigClass.GetConfigString("QQLoginRedirectURL")" charset="utf-8"></script>
+}
+    
+<script type="text/javascript">
+    (function () {
+        XCLShouCang.XCLJsonMessageName = "@XCLNetTools.Message.Log.JsonMessageName";
+        XCLShouCang.RootURL = "@Web.Common.CommonHelper.RootURL";
+
+        @{
+            Web.Models.Common.PageConfigModel pageModel = new Web.Models.Common.PageConfigModel();
+            pageModel.QQAppID=XCLNetTools.XML.ConfigClass.GetConfigString("QQAppID");
+            pageModel.QQAppKey = XCLNetTools.XML.ConfigClass.GetConfigString("QQAppKey");
+            pageModel.QQStateValue = XCLNetTools.XML.ConfigClass.GetConfigString("QQStateValue");
+            pageModel.QQLoginRedirectURL = XCLNetTools.XML.ConfigClass.GetConfigString("QQLoginRedirectURL");
+            pageModel.IsLogOn=(null!=ViewBag.IsLogOn && ViewBag.IsLogOn);
+            pageModel.UserName=(null!=ViewBag.CurrentUserModel?ViewBag.CurrentUserModel.UserName:"null");
+            pageModel.WebMainURL=Web.Common.CommonHelper.WebInfo.WebMainURL;
+            }
+        @Html.Raw(string.Format("XCLShouCang.PageConfig ={0};", new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(pageModel)))
+    })();
+</script>
+

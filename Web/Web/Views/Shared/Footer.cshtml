@@ -1,0 +1,28 @@
+﻿
+<a href="@Url.Action("About","Common")">关于我们</a>
+|
+<a href="@Url.Action("ToUse","Common")">如何使用</a>
+|
+<a href="mailto:@Web.Common.CommonHelper.WebInfo.AdminEmail">联系我们</a>
+<br />
+@Html.Raw(Web.Common.CommonHelper.WebInfo.CopyRight)
+
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "FormValid.js"))
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "GoAjax.js"))
+@*@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "jquery.textEllipsis.js"))*@
+@Html.Raw(Web.Config.StaticFileVersion.StaticFileVersionConfig.GetFileUrl("js", "BootstrapTypeahead"))
+
+
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?078d66915579d6e24f0a9b0619542a35";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "slide": { "type": "slide", "bdImg": "0", "bdPos": "right", "bdTop": "250" } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>

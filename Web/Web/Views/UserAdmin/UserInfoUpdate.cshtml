@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "资料修改";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <center><h2>个人信息修改</h2></center>
+    </div>
+    <div class="panel-body">
+        <form id="form1" name="form1" class="form-horizontal" role="form" method="post" action="@Url.Action("UserInfoUpdate", "UserCenter")">
+            <p></p>
+          <div class="form-group">
+            <label class="col-md-4 control-label">*用户名：</label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="txtUserName" name="txtUserName" placeholder="请输入用户名" valid="required|regexp" regexp="^[a-zA-Z0-9_]{3,16}$"  errmsg="必填！|必须为3~16位长度的数字、字母、下划线组合！"  value="@ViewBag.CurrentUserModel.UserName"/>
+                <span id="errMsg_txtUserName"></span>
+            </div>
+            <div class="col-md-4">
+        
+            </div>
+          </div>
+
+            <div class="form-group">
+            <label for="txtEmail" class="col-md-4 control-label">*邮箱：</label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="请输入邮箱" valid="required|isEmail" errmsg="必填！|邮箱格式不正确！" value="@ViewBag.CurrentUserModel.Email"/>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtEmail"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="txtPwd" class="col-md-4 control-label">新密码：</label>
+            <div class="col-md-4">
+              <input type="password" class="form-control" id="txtPwd" name="txtPwd" placeholder="若留空，则不会修改原密码"/>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtPwd"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="txtConfirmPwd" class="col-md-4 control-label">确认新密码：</label>
+            <div class="col-md-4">
+              <input type="password" class="form-control" id="txtConfirmPwd" name="txtConfirmPwd" placeholder="请再次输入密码" valid="eqaul" eqaulname="txtPwd"  errmsg="密码不一致！"/>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtConfirmPwd"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+              <button type="button" class="btn btn-info" id="btnRegisterSubmit" onclick="XCLShouCang.UserAdmin.UserInfoUpdate.Submit(this);return false;">提交修改信息</button>
+            </div>
+          </div>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        XCLShouCang.UserAdmin.UserInfoUpdate.Init();
+    });
+</script>

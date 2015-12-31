@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "搜索";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <center><h2>搜索互联网</h2></center>
+        </div>
+        <div class="panel-body">
+
+
+            <form id="form1" name="form1" class="form-horizontal" role="form" method="get" action="http://www.google.com/search" target="_blank">
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <a href="http://news.google.com/" class="label label-success" target="_blank">新闻</a>
+                    <a href="http://music.google.com/"  class="label label-success" target="_blank">音乐</a>
+                    <a href="http://images.google.com/"  class="label label-success" target="_blank">图片</a>
+                    <a href="http://video.google.com/"  class="label label-success" target="_blank">视频</a> 
+                    <a href="http://maps.google.com/"  class="label label-success" target="_blank">地图</a>          
+                </div>
+                <div class="col-md-4">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" name="q" baiduSug="1" placeholder="谷歌搜索"/>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-success" id="btnGoogleSearch">谷歌搜索</button>
+                    <a href="@Url.Action("Host","Common")" target="_blank" class="label label-danger"><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;谷歌最新Host下载</a>
+                </div>
+              </div>
+            </form>
+
+            <form id="form2" name="form2" class="form-horizontal" role="form" method="get" action="http://www.baidu.com/s" target="_blank">
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <a href="http://news.baidu.com/" class="label label-info" target="_blank">新闻</a>
+                    <a href="http://tieba.baidu.com/"  class="label label-info" target="_blank">贴吧</a>
+                    <a href="http://zhidao.baidu.com/"  class="label label-info" target="_blank">知道</a>
+                    <a href="http://music.baidu.com/"  class="label label-info" target="_blank">音乐</a>
+                    <a href="http://image.baidu.com/"  class="label label-info" target="_blank">图片</a>
+                    <a href="http://v.baidu.com/"  class="label label-info" target="_blank">视频</a> 
+                    <a href="http://baike.baidu.com/"  class="label label-info" target="_blank">百科</a>          
+                    <a href="http://ditu.baidu.com/"  class="label label-info" target="_blank">地图</a>          
+                    <a href="http://wenku.baidu.com/"  class="label label-info" target="_blank">文库</a>          
+                </div>
+                <div class="col-md-4">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" name="word" baiduSug="1" placeholder="百度搜索"/>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-info" id="btnBaiduSearch">百度搜索</button>              
+                </div>
+              </div>
+            </form>
+
+            @*<form id="form3" name="form3" class="form-horizontal" role="form" method="get" action="http://www.baidu.com/s" target="_blank">
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">      
+                </div>
+                <div class="col-md-4">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" baiduSug="1" placeholder="谷歌百度一起搜索"/>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary" id="btnGoogleBaiduSearch">谷歌百度一起搜索</button>              
+                </div>
+              </div>
+            </form>*@
+
+
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+    $(function () {
+        XCLShouCang.Common.Search.Init();
+    });
+</script>
+
+
+<script type="text/javascript" charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>

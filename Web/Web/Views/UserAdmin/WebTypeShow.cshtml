@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "详情信息";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+@model XCLShouCang.Model.WebType
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <center>
+            <h2>@(Model.IsFolder == 1 ? "查看我的收藏夹" : "查看我的收藏")</h2>
+        </center>
+    </div>
+    <div class="panel-body">
+
+        <form id="form1" name="form1" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-md-3 control-label">名称：</label>
+                <div class="col-md-3">
+                    @Model.TypeName
+                </div>
+                @if(Model.IsFolder==0)
+                {
+                <label class="col-md-3 control-label">图标：</label>
+                <div class="col-md-3">
+                    <img src="@Model.IcoURL" />
+                </div>
+                }
+            </div>
+
+            @if(Model.IsFolder==0)
+            {
+            <div class="form-group">
+                <label class="col-md-3 control-label">链接地址：</label>
+                <div class="col-md-3">
+                    <a href="@Model.TypeURL" target="_blank">@Model.TypeURL</a>
+                </div>
+            </div>
+            }
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">描述：</label>
+                <div class="col-md-9">
+                    @Model.TypeDescription
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">最近修改时间：</label>
+                <div class="col-md-3">
+                    @string.Format("{0:yyyy-MM-dd HH:mm:ss}", Model.UpdateTime)
+                    @Model.UpdateName
+                </div>
+                <label class="col-md-3 control-label">创建时间：</label>
+                <div class="col-md-3">
+                    @string.Format("{0:yyyy-MM-dd HH:mm:ss}", Model.CreateTime)
+                    @Model.CreatorName
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <center>
+                        <a class="btn btn-warning" href="@(null == Request.UrlReferrer ? Url.Action("WebTypeList", "UserAdmin") : Request.UrlReferrer.AbsoluteUri)"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;返 回</a>
+                    </center>
+                </div>
+            </div>
+
+
+        </form>
+
+
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        XCLShouCang.UserAdmin.WebTypeShow.Init();
+    });
+</script>

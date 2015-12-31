@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "分类管理";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+@model Web.Models.WebType.WebTypeListModel
+@*<div class="panel panel-success">
+    <div class="panel-heading"><strong>基本设置：</strong></div>
+    <div class="panel-body">
+        <form id="settingForm" name="settingForm" method="post" action="@Url.Action("SetShare", "WebShareRelation")" class="form-horizontal"  role="form">
+            <div class="form-group">
+            <label class="col-md-1 control-label">是否公开：</label>
+            <div class="col-md-2">
+                <input type="checkbox" value="1" class="XCLToolTip  form-control" id="ckIsShare" name="ckIsShare" @Html.Raw(Model.WebShareRelationModel.IsShare ? " checked='checked' " : "") />
+            </div>
+            <label class="col-md-1 control-label">访问密码：</label>
+            <div class="col-md-2">
+                <input type="text" class="XCLToolTip  form-control" id="txtSharePwd" name="txtSharePwd"   data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="公开后，在别人访问您的收藏夹时，需要输入的密码。" value="@Model.WebShareRelationModel.AccessPwd" />
+            </div>
+            <div class="col-md-6">
+            </div>
+                </div>
+            <div class="form-group">
+            <div class="col-md-12">
+                <center>
+                    <button type="button" class="btn btn-info" onclick="XCLShouCang.UserAdmin.WebTypeList.SetShare(this);return false;">保存设置</button>
+                </center>
+            </div>
+                </div>
+        </form>
+    </div>
+</div>*@
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <strong>管理：</strong>
+    </div>
+    <div class="panel-body">
+        <form class="form-inline" role="form">
+
+            <!--收藏的内容添加与修改-->
+            <div>
+                <div id="divTableTopTools" style="background: #f5f5f5; width: 100%; padding-top: 10px;">
+                    <label>快速切换收藏夹：</label>
+                    <select class="form-control" id="selParentID" name="selParentID">
+                        @Html.Raw(Model.WebTypeOptionStr)
+                    </select>
+                    <a class="btn btn-info" href="@Url.Action("Index", "WebTypeAdd", new { ParentID = Model.ParentWebTypeID, IsFolder = 1 })">新建收藏夹</a>
+                    <a class="btn btn-info" href="@Url.Action("Index", "WebTypeAdd", new { ParentID = Model.ParentWebTypeID, IsFolder = 0 })">添加收藏</a>
+                    @*<a class="btn btn-info" href="@Url.Action("Index", "WebTypeAdd", new { webTypeID = Model.ParentWebTypeID })">移动到</a> *@
+                    <button type="button" class="btn btn-danger" id="btnDelMainType" onclick="XCLShouCang.UserAdmin.WebTypeList.Del(this);return false;">删除已选项</button>
+                    <a class="btn btn-success" href="@Url.Action("WebURLInput", "UserAdmin", new { ParentID = Model.ParentWebTypeID, HandleType = Web.Common.CommonHelper.HandleType.INPUT })">批量导入</a>
+                    <a class="btn btn-warning" href="@Url.Action("WebURLOutput", "UserAdmin", new { ParentID = Model.ParentWebTypeID })">批量导出</a>
+                    <p></p>
+
+                    @Html.Partial("~/Views/Shared/UserControls/UCLayerList.cshtml", new Web.Models.Common.UCLayerListModel()
+               {
+                   UserID = ViewBag.CurrentUserModel.UserID,
+                   WebTypeID = Model.ParentWebTypeID,
+                   UCLayerListShowType = Web.Models.Common.UCLayerListShowTypeEnum.管理页
+               })
+                </div>
+
+                <table class="table table-bordered tableList" id="tableWebTypeList">
+                    <tr>
+                        <td align="center" width="5%">
+                            <input type="checkbox" class="checkAll" value="" />
+                        </td>
+                        <td align="center" width="35%"><strong>名称</strong></td>
+                        <td align="center" width="20%">操作</td>
+                    </tr>
+                    @if (null != Model.WebTypeList && Model.WebTypeList.Count > 0)
+                    {
+                        foreach (var m in Model.WebTypeList)
+                        {
+                        <tr>
+                            <td align="center">
+                                <input type="checkbox" class="checkItem" name="ckWebTypeID" value="@m.WebTypeID" />
+                            </td>
+                            <td>
+                                @if (m.IsFolder == 1)
+                                {
+                                    <span class="glyphicon glyphicon-folder-open"></span><text>&nbsp;</text>
+                                    <a href="@Url.Action("WebTypeList", "UserAdmin", new { parentWebTypeID = m.WebTypeID })">@m.TypeName</a>
+                                }
+                                else
+                                {
+                                    <a href="@m.TypeURL" target="_blank"  title="@m.TypeName">
+                                        @Html.Raw(string.IsNullOrEmpty(m.IcoURL) ? "" : string.Format(@"<img src=""{0}"" />", m.IcoURL))
+                                        @m.TypeName
+                                    </a>
+                                    <br />
+                                    <small>@m.TypeURL</small>
+                                }
+                            </td>
+                            <td align="left">
+                                <a class="btn btn-info" href="@Url.Action("Index", "WebTypeAdd", new { WebTypeID = m.WebTypeID, IsFolder = m.IsFolder, HandleType = Web.Common.CommonHelper.HandleType.UPDATE })">修改</a>
+                                @*<a class="btn btn-success" href="@Url.Action("Show", "WebTypeAdd", new { WebTypeID = m.WebTypeID })">详情</a> *@
+                                @if (m.IsFolder == 1)
+                                {
+                                    <a class="btn btn-info" href="@Url.Action("Index", "WebTypeAdd", new { ParentID = m.WebTypeID, IsFolder = 1 })">新建收藏夹</a>
+                                    <a class="btn btn-info" href="@Url.Action("Index", "WebTypeAdd", new { ParentID = m.WebTypeID, IsFolder = 0 })">添加收藏</a>
+                                }
+                            </td>
+                        </tr>
+                        }
+                    }
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        XCLShouCang.UserAdmin.WebTypeList.Init();
+    });
+</script>

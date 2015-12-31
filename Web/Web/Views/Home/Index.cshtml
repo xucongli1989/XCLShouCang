@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+
+           
+<div class="jumbotron">
+    <h1>永久免费，最简洁，最好用的网络收藏夹</h1>
+    <p>
+    您可以在任意浏览器、平板电脑、iPhone、安卓等终端上打开@(Web.Common.CommonHelper.WebInfo.WebName)网络收藏夹，一键收藏至云端，永久保存，随时随地访问您喜欢的网站，再也不用担心记不住网址了，
+    再也不用在不同浏览器之间导来导去，再也不用担心收藏夹丢失了！
+    </p>
+    <p>
+        @if (null != ViewBag.IsLogOn && ViewBag.IsLogOn)
+        {
+            <a class="btn btn-warning btn-lg" role="button" href="@Url.Action("MyHome", "UserAdmin")">您已登录，去收藏夹看看！</a>   
+        }
+        else
+        { 
+            <a class="btn btn-primary btn-lg" role="button" href="@Url.Action("Register", "Login")">没有账号？马上注册吧！</a>
+            <a class="btn btn-warning btn-lg" role="button" href="@Url.Action("Index", "Login")">我有账号，立即登录吧！</a>         
+            <a href="javascript:void(0);" id="qqLoginBtn">
+                <img src="@(Web.Common.CommonHelper.RootURL)Resources/Images/qqlogin.png" />
+            </a>
+        }
+    </p>
+    <div class="row">
+                      <div class="col-md-3">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3><span class="glyphicon glyphicon-th-large"></span>&nbsp;安全有保障，永不丢失</h3>
+            <p>
+                您的私人收藏只能您自己看得到，所有数据会自动备份，永不丢失，安全可靠
+            </p>
+          </div>
+        </div>
+      </div>
+              <div class="col-md-3">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3><span class="glyphicon glyphicon-globe"></span>&nbsp;支持所有能上网的设备</h3>
+            <p>
+                只要安装了浏览器、能访问网络，您就可以随时随地访问，走到哪就免费用到哪
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3><span class="glyphicon glyphicon-list-alt"></span>&nbsp;无限制自定义分类</h3>
+            <p>
+                对用户自定义的分类没有限制，与windows文件夹管理类似，分类更仔细，查找更方便
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3><span class="glyphicon glyphicon-leaf"></span>&nbsp;简约的操作界面</h3>
+            <p>
+                没有任何广告的干扰，操作简简单单，所有收藏一目了然
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        XCLShouCang.Home.Init();
+    });
+</script>

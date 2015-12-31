@@ -1,0 +1,80 @@
+﻿html, body, .XCLMainDiv {height: 100%;font-family:"Microsoft YaHei",Sans-Serif;width:100%;margin:0;padding:0px;}
+body > .XCLMainDiv {height: auto; min-height: 100%;}
+.XCLCenterDiv {padding-bottom: 60px;}
+.XCLBottomDiv {position: relative;margin-top: -60px;height:60px;padding-top:10px; clear:both;background:#0664a4;color:#fff;width:100%;text-align:center;} 
+.XCLBottomDiv a{color:#fff;}
+
+.XCLMainDiv .TopDiv
+{
+    height:80px;
+    min-height:80px;
+    height:auto;
+    padding:0px;
+    margin:0px;
+}
+.XCLMainDiv .TopDiv a
+{
+    text-decoration:none;
+}
+.XCLMainDiv .TopDiv .navbar-header a,.XCLMainDiv .TopDiv .navbar-header button
+{
+    color:#fff;
+}
+.XCLMainDiv .TopDiv .navbar
+{
+    margin:0px;
+    background:#0664a4;
+    border:0px;
+}
+.XCLMainDiv .TopDiv .navbar ul.navbar-nav > li > a
+{
+    color:#fff;
+}
+.XCLMainDiv .TopDiv .navbar ul.navbar-nav > li.open > a,.XCLMainDiv .TopDiv .dropdown-menu a
+{
+    color:#0664a4;
+}
+    .XCLMainDiv .TopDiv #divWebTypeListNav
+    {
+        margin-top:10px;
+        margin-bottom:10px;
+        padding-left:10px;
+    }
+
+
+.XCLMainDiv .XCLCenterDiv a.aWebTypeLink
+{
+    font-size:15px;
+    font-weight:bold;
+    color:#666;
+    display:block;
+    text-decoration:none;
+    }
+ .XCLMainDiv .XCLCenterDiv a.aWebTypeLink:hover{color:#0664a4;margin-left:5px;}   
+
+.XCLMainDiv .XCLCenterDiv a.aWebTypeLink span.glyphicon
+{
+    margin:5px;
+    }
+
+.XCLMainDiv .XCLCenterDiv .MyHomeListItem{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.XCLMainDiv .XCLCenterDiv .MyHomeListItem a{height:35px;line-height:35px;}
+.XCLMainDiv .XCLCenterDiv .MyHomeListItem a:hover{background:#3399FF;color:#fff;}
+
+.XCLSelectNav{color:#FF9933!important;font-weight:bold;}
+
+.XCLLoading
+{
+   background:url("../Images/loading.gif") no-repeat;
+   background-position:right top;
+}
+
+.XCLExpandFlag
+{
+    float:right;
+}
+
+.XCLWebTypeBody
+{
+    display:none;
+}

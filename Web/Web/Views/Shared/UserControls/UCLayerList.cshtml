@@ -1,0 +1,49 @@
+﻿@model Web.Models.Common.UCLayerListModel
+@if (Model.UCLayerListShowType == Web.Models.Common.UCLayerListShowTypeEnum.管理页)
+{
+
+    <div style="width: 100%;" id="divWebTypeListNav">
+        <ol class="breadcrumb">
+            @if (null != Model.LayerList && Model.LayerList.Count > 0)
+            {
+                for (int i = 0; i < Model.LayerList.Count; i++)
+                {
+                    if (i == Model.LayerList.Count - 1)
+                    {
+                <li>@Model.LayerList[i].TypeName</li>
+                    }
+                    else
+                    {
+                <li><a href="@Url.Action("WebTypeList", "UserAdmin", new { parentWebTypeID = Model.LayerList[i].WebTypeID })" class="LayerListLink" XCL-WebTypeID="@Model.LayerList[i].WebTypeID">@Model.LayerList[i].TypeName</a></li>
+                    }
+
+                }
+            }
+        </ol>
+    </div>
+
+}
+else if (Model.UCLayerListShowType == Web.Models.Common.UCLayerListShowTypeEnum.列表页)
+{
+
+    <div style="width: 100%; z-index: 99;" id="divWebTypeListNav">
+        <ol class="breadcrumb">
+            @if (null != Model.LayerList && Model.LayerList.Count > 0)
+            {
+                for (int i = 0; i < Model.LayerList.Count; i++)
+                {
+                    if (i == Model.LayerList.Count - 1)
+                    {
+                <li>@Model.LayerList[i].TypeName</li>
+                    }
+                    else
+                    {
+                <li><a href="javascript:void(0);" class="LayerListLink" XCL-WebTypeID="@Model.LayerList[i].WebTypeID">@Model.LayerList[i].TypeName</a></li>
+                    }
+
+                }
+            }
+        </ol>
+    </div>
+
+}

@@ -1,0 +1,55 @@
+﻿<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            菜单
+        </button>
+        <h1 style="margin: 10px;"><a href="@Url.Action("Index", "Home")">
+            <img src="@Url.Content("~/Resources/Images/logo/logo.png")" />&nbsp;我的云导航</a></h1>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            @if (null != ViewBag.IsLogOn && ViewBag.IsLogOn)
+            {
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;欢迎您，@ViewBag.CurrentUserModel.UserName！<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a id="XCL_NavUpdateMyInfo" href="@Url.Action("UserInfoUpdate", "UserCenter")"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;设置</a></li>
+                        <li><a href="@Url.Action("LogOut", "Login")" id="btnLogOut"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;&nbsp;退出</a></li>
+                    </ul>
+                </li>
+            }
+            <li><a  id="XCL_NavMyFav" href="@Url.Action("MyHome", "UserAdmin")"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;我的收藏夹</a></li>
+            <li><a  id="XCL_NavFavInput" href="@Url.Action("WebURLInput", "UserAdmin", new { HandleType = Web.Common.CommonHelper.HandleType.INPUT })" ><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;&nbsp;导入收藏夹</a></li>
+            <li><a href="@Url.Action("WebURLOutPut", "UserAdmin")"><span class="glyphicon glyphicon-cloud-download"></span>&nbsp;&nbsp;导出收藏夹</a></li>
+
+            @if (null != ViewBag.IsLogOn && ViewBag.IsLogOn)
+            {
+                <li><a  id="XCL_NavAdmin" href="@Url.Action("WebTypeList", "UserAdmin")"><span class="glyphicon glyphicon-wrench"></span>&nbsp;&nbsp;管理收藏夹</a></li>
+            }
+            else
+            {
+                <li><a  id="XCL_NavReg" href="@Url.Action("Register", "Login")"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;注册</a></li>
+                <li><a  id="XCL_NavLogin" href="@Url.Action("Index", "Login")"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;登录</a></li>
+            }
+            <li><a  id="XCL_NavSearch" href="@Url.Action("Search", "Common")"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;搜索互联网</a></li>
+
+            <li><a id="XCL_NavComment" href="@Url.Action("Comment", "Common")"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;在线留言</a></li>
+        </ul>
+    </div>
+</div>
+
+@if (null != ViewBag.IsLogOn && ViewBag.IsLogOn)
+{
+    <div id="divWebTypeListNav" class="form-inline">
+        <div class="form-group">
+            <select class="form-control">
+                <option>仅自己</option>
+                @*<option>所有共享</option>*@
+            </select>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="text" id="txtWebTypeListSearch" name="txtWebTypeListSearch" class="form-control" data-provide="typeahead" />
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+    </div>
+}

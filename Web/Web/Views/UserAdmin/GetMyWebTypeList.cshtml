@@ -1,0 +1,108 @@
+﻿
+@model Web.Models.WebType.MyWebTypeShowModel
+
+
+    @Html.Partial("~/Views/Shared/UserControls/UCLayerList.cshtml", new Web.Models.Common.UCLayerListModel() { 
+        UserID=ViewBag.CurrentUserModel.UserID,
+        WebTypeID=Model.ParentID,
+        UCLayerListShowType=Web.Models.Common.UCLayerListShowTypeEnum.列表页
+    })
+
+
+
+@if (null != ViewBag.IsLogOn && ViewBag.IsLogOn)
+{
+
+    if ((null == Model.FolderList || Model.FolderList.Count == 0) && (null == Model.FileList || Model.FileList.Count == 0))
+    {
+    <center style="margin-top: 100px;">
+        <h2>
+            <a href="@Url.Action("WebTypeList", "UserAdmin")">该收藏夹还没有任何内容哦，请至【管理】中添加！</a></h2>
+    </center>
+    }
+
+    <div style="width: 100%; overflow: hidden;">
+
+        @if (null != Model.FolderList && Model.FolderList.Count > 0)
+        {
+            foreach (var m in Model.FolderList)
+            {
+            <div class="panel panel-info">
+                <div class="XCLWebTypeHeader panel-heading">
+                    <h4>
+                        <span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;<strong><a href="javascript:void(0);"  class="aWebTypeLinkListHeader" XCL-WebTypeID="@m.WebTypeID" XCL-IsFolder="@m.IsFolder">@m.TypeName</a></strong>
+                        <span class="XCLExpandFlag glyphicon glyphicon-plus"></span>
+                    </h4>
+                </div>
+                <div class="XCLWebTypeBody panel-body">
+                    <div class="row MyHomeListRow">
+
+                        @{var subList = new XCLShouCang.BLL.v_WebType().GetModelList(m.WebTypeID, ViewBag.CurrentUserModel.UserID);
+                          if (null != subList && subList.Count > 0)
+                          {
+                              var splitList = XCLNetTools.Generic.ListHelper<XCLShouCang.Model.v_WebType>.SplitListByStep(3, subList);
+                              foreach (var subTd in splitList)
+                              {
+                                  foreach (var splitModel in subTd)
+                                  {
+                            <div class="col-md-4 MyHomeListItem">
+                                <a href="@(splitModel.IsFolder == 1 ? "javascript:void(0);" : splitModel.TypeURL)"  @Html.Raw(splitModel.IsFolder == 0 ? "target='_blank'" : "")  class="aWebTypeLink" title="@splitModel.TypeName" XCL-WebTypeID="@splitModel.WebTypeID" XCL-IsFolder="@splitModel.IsFolder">
+                                    @if (splitModel.IsFolder == 1)
+                                    {
+                                        <span class="glyphicon glyphicon-folder-open"></span>
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(string.IsNullOrEmpty(splitModel.IcoURL) ? "" : string.Format(@"<img src=""{0}"" />", splitModel.IcoURL))
+                                    }
+                                    @splitModel.TypeName
+                                </a>
+                            </div>
+                                  }
+                              }
+                          }
+                          else
+                          {
+                            <div class="col-md-12 MyHomeListItem">
+                                <center><a href="@Url.Action("WebTypeList", "UserAdmin")">该收藏夹还没有任何内容哦，请至【管理】中添加！</a></center>
+                            </div>
+                          }
+                        }
+                    </div>
+                </div>
+            </div>
+            }
+        }
+
+        @if (null != Model.FileList && Model.FileList.Count > 0)
+        {
+            <div class="panel panel-info">
+                <div class="XCLWebTypeHeader panel-heading">
+                    <h4><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;<strong>当前收藏</strong><span class="XCLExpandFlag glyphicon glyphicon-plus"></span></h4>
+                </div>
+                <div class="XCLWebTypeBody panel-body">
+                    <div class="row MyHomeListRow">
+
+                        @{
+            var splitList = XCLNetTools.Generic.ListHelper<XCLShouCang.Model.v_WebType>.SplitListByStep(3, Model.FileList);
+            foreach (var subTd in splitList)
+            {
+                foreach (var splitModel in subTd)
+                {
+                            <div class="col-md-4 MyHomeListItem">
+                                <a href="@splitModel.TypeURL" target="_blank" class="aWebTypeLink" title="@splitModel.TypeName">
+                                    @Html.Raw(string.IsNullOrEmpty(splitModel.IcoURL) ? "" : string.Format(@"<img src=""{0}"" />", splitModel.IcoURL))
+                                    @splitModel.TypeName
+                                </a>
+                            </div>
+                }
+            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+}
+

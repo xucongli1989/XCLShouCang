@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "用户注册";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <center><h2>免费注册，即可拥有属于您的云收藏夹</h2></center>
+    </div>
+    <div class="panel-body">
+        <form id="form1" name="form1" class="form-horizontal" role="form" method="post" action="@Url.Action("RegisterSubmit", "Login")">
+          <div class="form-group">
+            <label for="txtUserName" class="col-md-4 control-label">*用户名：</label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="txtUserName" name="txtUserName" placeholder="请输入用户名" valid="required|regexp" regexp="^[a-zA-Z0-9_]{3,16}$"  errmsg="必填！|必须为3~16位长度的数字、字母、下划线组合！"/>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtUserName"></span>
+            </div>
+          </div>
+
+            <div class="form-group">
+            <label for="txtEmail" class="col-md-4 control-label">*邮箱：</label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="请输入邮箱" valid="required|isEmail" errmsg="必填！|邮箱格式不正确！"/>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtEmail"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="txtPwd" class="col-md-4 control-label">*密码：</label>
+            <div class="col-md-4">
+              <input type="password" class="form-control" id="txtPwd" name="txtPwd" placeholder="请输入密码" valid="required"  errmsg="必填！"/>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtPwd"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="txtConfirmPwd" class="col-md-4 control-label">*确认密码：</label>
+            <div class="col-md-4">
+              <input type="password" class="form-control" id="txtConfirmPwd" name="txtConfirmPwd" placeholder="请再次输入密码" valid="eqaul" eqaulname="txtPwd"  errmsg="密码不一致！"/>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtConfirmPwd"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+              <div class="col-md-4"></div>
+            <div class="col-md-8">
+              <button type="button" class="btn btn-info" id="btnRegisterSubmit" onclick="XCLShouCang.Login.Register.Submit(this);return false;">提交注册信息</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+              <div class="col-md-4"></div>
+            <div class="col-md-8">
+              <a href="@Url.Action("Index","Login")">已有账号？马上登录吧！</a>
+            <a href="javascript:void(0);" id="qqLoginBtn">
+                <img src="@(Web.Common.CommonHelper.RootURL)Resources/Images/qqlogin.png" />
+            </a>
+            </div>
+          </div>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        XCLShouCang.Login.Register.Init();
+    });
+</script>

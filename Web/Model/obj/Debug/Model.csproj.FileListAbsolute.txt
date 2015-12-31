@@ -1,0 +1,10 @@
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\bin\Debug\XCLShouCang.Model.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\bin\Debug\XCLShouCang.Model.pdb
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\bin\Debug\XCLNetTools.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\bin\Debug\log4net.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\bin\Debug\LitJson.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\bin\Debug\Excel.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\bin\Debug\XCLNetTools.xml
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\obj\Debug\XCLShouCang.Model.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Model\obj\Debug\XCLShouCang.Model.pdb

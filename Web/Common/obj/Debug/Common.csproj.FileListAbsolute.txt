@@ -1,0 +1,9 @@
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\bin\Debug\XCLShouCang.Common.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\bin\Debug\XCLShouCang.Common.pdb
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\bin\Debug\COM.Excel.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\bin\Debug\Excel.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\bin\Debug\OpenSmtp.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\bin\Debug\OWC10Chart.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\obj\Debug\XCLShouCang.Common.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Common\obj\Debug\XCLShouCang.Common.pdb

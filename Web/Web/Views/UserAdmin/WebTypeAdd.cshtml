@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "分类管理";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+@model Web.Models.WebType.WebTypeAddModel
+
+
+@Html.Partial("~/Views/Shared/UserControls/UCLayerList.cshtml", new Web.Models.Common.UCLayerListModel() { 
+    UserID=ViewBag.CurrentUserModel.UserID,
+    WebTypeID=ViewBag.CurrentHandleType == Web.Common.CommonHelper.HandleType.UPDATE?Model.WebTypeID:Model.ParentID,
+    UCLayerListShowType=Web.Models.Common.UCLayerListShowTypeEnum.管理页
+})
+
+
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <center>
+            <h2>
+                @if (ViewBag.CurrentHandleType == Web.Common.CommonHelper.HandleType.UPDATE) { 
+                    @(Model.IsFolder==1?"修改我的收藏夹":"修改我的收藏")
+                }else{
+                    @(Model.IsFolder==1?"新建我的收藏夹":"添加我的收藏")
+                }
+            </h2></center>
+    </div>
+    <div class="panel-body">
+        <form id="form1" name="form1" class="form-horizontal" role="form" method="post" action="@Url.Action("Add", "WebTypeAdd", new { HandleType = ViewBag.CurrentHandleType })">
+            <p></p>
+
+            <input type="hidden" name="WebTypeID" value="@Model.WebTypeID" />
+            <input type="hidden" name="ParentID" value="@Model.ParentID" />
+            <input type="hidden" name="IsFolder" value="@Model.IsFolder" />
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">*名称：</label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="txtTypeName" name="txtTypeName" placeholder="请输入名称" valid="required"  errmsg="必填！" value="@Model.TypeName"/>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtTypeName"></span>
+            </div>
+          </div>
+
+          @if (Model.IsFolder==0)
+          {
+
+            <div class="form-group">
+            <label class="col-md-4 control-label">链接：</label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="txtTypeURL" name="txtTypeURL" value="@Model.TypeURL" placeholder="请输入链接，如：http://www.wdydh.com" valid="required"  errmsg="必填！"/>
+              <br />
+              <div class="alert alert-warning">注意：不限制链接类型，可以为ftp、迅雷、种子等链接，若为http网址，必须带上http！</div>
+            </div>
+            <div class="col-md-4">
+                <span id="errMsg_txtTypeURL"></span>
+            </div>
+          </div>
+
+          }
+      
+      
+          <div class="form-group">
+            <label class="col-md-4 control-label">描述：</label>
+            <div class="col-md-4">
+              <textarea class="form-control" rows="3" id="txtTypeDescription" name="txtTypeDescription">@Model.TypeDescription</textarea>
+            </div>
+            <div class="col-md-4">
+        
+            </div>
+          </div>
+
+
+
+
+          <div class="form-group">
+            <div class="col-md-offset-4 col-md-4">
+              <a class="btn btn-warning" href="@(null == Request.UrlReferrer ? Url.Action("WebTypeList", "UserAdmin") : Request.UrlReferrer.AbsoluteUri)"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;返 回</a>
+              &nbsp;&nbsp;
+              <button type="button" class="btn btn-info" id="btnSave" onclick="XCLShouCang.UserAdmin.WebTypeAdd.Submit(this);return false;">保 存</button>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+        </form>        
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        XCLShouCang.UserAdmin.WebTypeAdd.Init();
+    });
+</script>

@@ -1,0 +1,5 @@
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Lib\bin\Debug\Lib.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Lib\bin\Debug\Lib.pdb
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Lib\obj\Debug\Lib.csprojResolveAssemblyReference.cache
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Lib\obj\Debug\Lib.dll
+D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Lib\obj\Debug\Lib.pdb

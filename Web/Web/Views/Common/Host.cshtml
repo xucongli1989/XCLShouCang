@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "HOST";
+    Layout = "~/Views/Shared/MasterView/MainView.cshtml";
+}
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <center><h2>Google Host</h2></center>
+        </div>
+        <div class="panel-body">
+            <div class="alert alert-danger" role="alert"><strong>温馨提示：</strong>本资源来自互联网，请谨慎使用，感谢您对本站的支持！</div>
+
+            @Html.Raw(ViewBag.GoogleHost)
+        </div>
+    </div>
+
+
