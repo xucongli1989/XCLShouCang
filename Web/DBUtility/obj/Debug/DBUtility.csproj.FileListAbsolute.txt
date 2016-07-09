@@ -6,3 +6,11 @@ D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\DBUtility\bin\Debug\MySql.Data.dll
 D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\DBUtility\obj\Debug\XCLShouCang.DBUtility.dll
 D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\DBUtility\obj\Debug\XCLShouCang.DBUtility.pdb
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\DBUtility\bin\Debug\XCLShouCang.DBUtility.dll
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\DBUtility\bin\Debug\XCLShouCang.DBUtility.pdb
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\DBUtility\bin\Debug\IBatisNet.Common.dll
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\DBUtility\bin\Debug\IBatisNet.DataMapper.dll
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\DBUtility\bin\Debug\MySql.Data.dll
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\DBUtility\obj\Debug\XCLShouCang.DBUtility.dll
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\DBUtility\obj\Debug\XCLShouCang.DBUtility.pdb

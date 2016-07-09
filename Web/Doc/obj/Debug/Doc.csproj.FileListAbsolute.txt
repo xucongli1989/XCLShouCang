@@ -3,3 +3,7 @@ D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Doc\bin\Debug\Doc.pdb
 D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Doc\obj\Debug\Doc.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Doc\obj\Debug\Doc.dll
 D:\MyData\MyGit\GitHub\MyClouldNavigation\Web\Doc\obj\Debug\Doc.pdb
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\Doc\bin\Debug\Doc.dll
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\Doc\bin\Debug\Doc.pdb
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\Doc\obj\Debug\Doc.dll
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\Doc\obj\Debug\Doc.pdb
