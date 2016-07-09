@@ -4,7 +4,7 @@
 
 # 注意
 
-  该项目是为了学习asp.net mvc 和 bootstrap 时发起的，目前这个项目暂时不会再继续维护。当然，本网站的功能还是可以正常使用的，网址：[http://dh.wodeabc.com](http://dh.wodeabc.com)
+  该项目是为了学习asp.net mvc 和 bootstrap 时发起的，目前这个项目不会再继续维护。当然，本网站的功能还是可以正常使用的，网址：[http://dh.wodeabc.com](http://dh.wodeabc.com)
 
 # 预览
 
