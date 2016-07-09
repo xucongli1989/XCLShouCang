@@ -17,3 +17,4 @@ D:\MyData\MyGit\GitHub\XCLShouCang\Web\Model\bin\Debug\Excel.dll
 D:\MyData\MyGit\GitHub\XCLShouCang\Web\Model\bin\Debug\XCLNetTools.xml
 D:\MyData\MyGit\GitHub\XCLShouCang\Web\Model\obj\Debug\XCLShouCang.Model.dll
 D:\MyData\MyGit\GitHub\XCLShouCang\Web\Model\obj\Debug\XCLShouCang.Model.pdb
+D:\MyData\MyGit\GitHub\XCLShouCang\Web\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
